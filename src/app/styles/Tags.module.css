@@ -1,0 +1,12 @@
+.tags {
+  padding: 2rem 0;
+}
+
+.tag {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #ffffff;
+  width: fit-content;
+  background-color: #c97c4e;
+}
