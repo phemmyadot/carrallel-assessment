@@ -55,6 +55,9 @@ const Login = () => {
   return (
     <div className={styles.authContainer}>
       <form className={styles.authForm} onSubmit={handleSubmit}>
+        <div className={styles.authHeader}>
+          <h1 className={styles.authTitle}>Login</h1>
+        </div>
         <input
           type="email"
           placeholder="Email"

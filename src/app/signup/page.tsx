@@ -106,6 +106,9 @@ const SingUpPage = () => {
   return (
     <div className={styles.authContainer}>
       <form className={styles.authForm} onSubmit={handleSubmit}>
+        <div className={styles.authHeader}>
+          <h1 className={styles.authTitle}>Sign Up</h1>
+        </div>
         <input
           type="username"
           placeholder="Username"
