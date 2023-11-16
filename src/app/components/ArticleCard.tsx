@@ -12,7 +12,11 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl, id }) => {
   return (
-    <a href={`/library/${id}`} className={styles.articleCard}>
+    <a
+      data-testid="article-card"
+      href={`/library/${id}`}
+      className={styles.articleCard}
+    >
       <Image
         src={imageUrl}
         alt={title}

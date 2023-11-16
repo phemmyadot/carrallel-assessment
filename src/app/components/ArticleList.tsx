@@ -57,7 +57,9 @@ const ArticleList: React.FC = () => {
 
   return (
     <>
-      {recommendedArticles.length === 0 && <div>No Articles found</div>}
+      {recommendedArticles.length === 0 && (
+        <div data-testid="no-articles">No Articles found</div>
+      )}
       <div className={styles.articleSection + " scrollable-row"}>
         {recommendedArticles.map((article) => (
           <ArticleCard

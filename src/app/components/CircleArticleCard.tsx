@@ -16,7 +16,11 @@ const CircleArticleCard: React.FC<CircleArticleCardProps> = ({
   id,
 }) => {
   return (
-    <a href={`/library/${id}`} className={styles.circleArticleCard}>
+    <a
+      data-testid="circle-article-card"
+      href={`/library/${id}`}
+      className={styles.circleArticleCard}
+    >
       <Image
         src={imageUrl}
         alt={title}
