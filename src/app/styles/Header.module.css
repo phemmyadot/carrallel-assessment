@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fefaf7;
+  box-shadow: 0 2px 4px rgba(0, 0, 11, 0.1);
+}
+
+.menuList {
+  display: flex; 
+  right: 0; 
+  top: 0; 
+}
+
+.menuList > a {
+    display: block; 
+    padding: 1rem; 
+    color: #000; 
+    text-decoration: none; 
+}
+
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 300;
+}
+
+.mobileMenuIcon {
+    display: none;
+}
+
+/* mobile styles */
+@media (max-width: 768px) {
+  .mobileMenuIcon {
+    display: block; 
+  }
+  .menuList {
+    display: none; 
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}

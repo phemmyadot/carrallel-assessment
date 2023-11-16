@@ -1,0 +1,36 @@
+
+.navMobile {
+  display: grid;
+  grid-template-columns: repeat(5, 50px [col-start]); 
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #fefaf7;
+  box-shadow: 7px -3px 16px rgba(0, 0, 11, 0.1);
+}
+
+.bottomMenuItem > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.bottomMenuItem > a >img{
+  fill: red;
+}
+.bottomMenuItem > a > span{
+  font-size: 0.85rem;
+}
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Use media queries to hide/show the navigation based on screen size */
+@media (min-width: 768px) {
+  .navMobile {
+    display: none;
+  }
+}
