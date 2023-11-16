@@ -49,6 +49,8 @@ const Menu: React.FC = () => {
     setBottomMenuItems(updatedMenuItems);
   }, [pathname]);
 
+  if (pathname === "/login" || pathname === "/signup") return <></>;
+
   return (
     <>
       {/* Bottom Navigation for Mobile Screens */}

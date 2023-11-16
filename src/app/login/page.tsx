@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { set } from "mongoose";
 import Link from "next/link";
 import Toast, { ToastProps, ToastType } from "../components/Toast";
 import Loader from "../components/Loader";
+import styles from "../styles/Auth.module.css";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +13,7 @@ const Login = () => {
   const [toast, setToast] = useState<ToastProps | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleCloseToast = (message: string) => {
+  const handleShowToast = (message: string) => {
     setToast({
       message: message,
       type: ToastType.ERROR,
@@ -43,18 +43,18 @@ const Login = () => {
         router.push("/");
       } else {
         const data = await response.json();
-        handleCloseToast(data.message);
+        handleShowToast(data.message);
       }
     } catch (error: any) {
-      handleCloseToast(error.message);
+      handleShowToast(error.message);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.authContainer}>
+      <form className={styles.authForm} onSubmit={handleSubmit}>
         <input
           type="email"
           value={username}
@@ -67,14 +67,14 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <p>
+        <p className={styles.authSwitch}>
           New User? <Link href="/signup">Register</Link>
         </p>
         <button type="submit">Login</button>
       </form>
       {loading && <Loader />}
       {toast && <Toast {...toast} />}
-    </>
+    </div>
   );
 };
 

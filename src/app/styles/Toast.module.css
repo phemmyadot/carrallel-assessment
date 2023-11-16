@@ -13,12 +13,9 @@
     align-items: center;
     max-width: 300px;
   }
-  
-  .toast button {
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+
+  .toast > p{
+    font-size: 0.75rem;
   }
   
   @media screen and (max-width: 600px) {

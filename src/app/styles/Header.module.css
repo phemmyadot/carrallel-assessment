@@ -8,35 +8,65 @@
 }
 
 .menuList {
-  display: flex; 
-  right: 0; 
-  top: 0; 
+  display: flex;
+  right: 0;
+  top: 0;
 }
 
-.menuList > a {
-    display: block; 
-    padding: 1rem; 
-    color: #000; 
-    text-decoration: none; 
+.menuList>a {
+  display: block;
+  padding: 1rem;
+  color: #000;
+  text-decoration: none;
 }
 
 .title {
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 300;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
 }
 
 .mobileMenuIcon {
-    display: none;
+  display: none;
 }
+
+.largeScreenIcon {
+  margin: 0 1rem;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownContent {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.dropdownContent a:hover {
+  background-color: #ddd;
+}
+
+.settingIcon:hover .dropdownContent {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* mobile styles */
 @media (max-width: 768px) {
   .mobileMenuIcon {
-    display: block; 
+    display: block;
   }
+
   .menuList {
-    display: none; 
+    display: none;
   }
+
   .title {
     font-size: 1.5rem;
   }

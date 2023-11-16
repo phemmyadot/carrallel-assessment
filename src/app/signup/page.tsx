@@ -1,11 +1,11 @@
 "use client";
 
-import { set } from "mongoose";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Toast, { ToastProps, ToastType } from "../components/Toast";
 import Link from "next/link";
 import Loader from "../components/Loader";
+import styles from "../styles/Auth.module.css";
 
 interface SignUpForm {
   username?: string;
@@ -104,8 +104,8 @@ const SingUpPage = () => {
   }, [username, password, confirmPassword]);
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.authContainer}>
+      <form className={styles.authForm} onSubmit={handleSubmit}>
         <input
           type="username"
           value={username}
@@ -126,14 +126,14 @@ const SingUpPage = () => {
         {formErrors.confirmPassword && (
           <span>{formErrors?.confirmPassword}</span>
         )}
-        <p>
+        <p className={styles.authSwitch}>
           Already have an account? <Link href="/login">Login</Link>
         </p>
         <button type="submit">Sign Up</button>
       </form>
       {loading && <Loader />}
       {toast && <Toast {...toast} />}
-    </>
+    </div>
   );
 };
 
