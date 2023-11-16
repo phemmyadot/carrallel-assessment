@@ -3,31 +3,32 @@ import React, { useCallback, useEffect, useState } from "react";
 import styles from "../styles/BottomMenu.module.css";
 import BottomMenuItem from "./BottomMenuItem";
 import { usePathname } from "next/navigation";
+import { SVGIconName } from "./SvgIcons";
 
 const menuItems = [
   {
     linkUrl: "/",
-    text: "Home",
+    text: SVGIconName.HOME,
     isActive: false,
   },
   {
     linkUrl: "/library",
-    text: "Library",
+    text: SVGIconName.LIBRARY,
     isActive: false,
   },
   {
     linkUrl: "/plan",
-    text: "Plan",
+    text: SVGIconName.PLAN,
     isActive: true,
   },
   {
     linkUrl: "/tools",
-    text: "Tools",
+    text: SVGIconName.TOOLS,
     isActive: false,
   },
   {
     linkUrl: "/support",
-    text: "Support",
+    text: SVGIconName.SUPPORT,
     isActive: false,
   },
 ];

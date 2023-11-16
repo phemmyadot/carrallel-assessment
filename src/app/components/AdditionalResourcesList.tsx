@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import styles from "../styles/ArticleList.module.css";
-import ArticleCard from "./ArticleCard";
-import CircleArticleCard from "./CircleArticleCard";
+import styles from "../styles/AdditionalResourcesList.module.css";
+import AdditionalResource from "./AdditionalResource";
 
-const ArticleList: React.FC = () => {
+const AdditionalResources: React.FC = () => {
   // Dummy data for the cards
   const articles = [
     {
@@ -55,18 +54,9 @@ const ArticleList: React.FC = () => {
 
   return (
     <>
-      <div className={styles.articleSection + " scrollable-row"}>
+      <div className={styles.additionalResourcesSection}>
         {articles.map((article, index) => (
-          <ArticleCard
-            key={index}
-            title={article.title}
-            imageUrl={article.imageUrl}
-          />
-        ))}
-      </div>
-      <div className={styles.circleArticleSection + " scrollable-row"}>
-        {otherArticles.map((article, index) => (
-          <CircleArticleCard
+          <AdditionalResource
             key={index}
             title={article.title}
             imageUrl={article.imageUrl}
@@ -77,4 +67,4 @@ const ArticleList: React.FC = () => {
   );
 };
 
-export default ArticleList;
+export default AdditionalResources;

@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Header />
 
-        {children}
+        <div className="app-content">{children}</div>
         <Menu />
       </body>
     </html>

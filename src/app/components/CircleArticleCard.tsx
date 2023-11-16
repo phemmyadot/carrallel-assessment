@@ -1,23 +1,26 @@
 "use client";
 
 import React from "react";
-import styles from "../styles/ArticleCard.module.css";
+import styles from "../styles/CircleArticleCard.module.css";
 import Image from "next/image";
 
-interface ArticleCardProps {
+interface CircleArticleCardProps {
   title: string;
   imageUrl: string;
 }
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl }) => {
+const CircleArticleCard: React.FC<CircleArticleCardProps> = ({
+  title,
+  imageUrl,
+}) => {
   return (
-    <div className={styles.articleCard}>
+    <div className={styles.circleArticleCard}>
       <Image
         src={imageUrl}
         alt={title}
         className={styles.cardImage}
         height={100}
-        width={600}
+        width={100}
       />
       <div className={styles.cardBody}>
         <p>{title}</p>
@@ -26,4 +29,4 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl }) => {
   );
 };
 
-export default ArticleCard;
+export default CircleArticleCard;

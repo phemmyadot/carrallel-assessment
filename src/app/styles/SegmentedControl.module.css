@@ -1,0 +1,21 @@
+.segmentedControl {
+  margin: 2em 0;
+  padding: 0.5rem 0;
+}
+
+.segmentButton {
+  background-color: white;
+  border: none;
+  color: #015f01;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  font-weight: 500;
+}
+.activeSegment {
+  background-color: #015f01;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  font-weight: 500;
+}

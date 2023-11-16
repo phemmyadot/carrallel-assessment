@@ -5,7 +5,7 @@ import SVGIcons, { SVGIconName } from "./SvgIcons";
 
 interface BottomMenuItemProps {
   linkUrl: string;
-  text: string;
+  text: SVGIconName;
   isActive?: boolean;
 }
 
@@ -18,10 +18,8 @@ const BottomMenuItem: React.FC<BottomMenuItemProps> = ({
   return (
     <div className={styles.bottomMenuItem}>
       <Link href={linkUrl}>
-        {text !== "Support" && (
-          <SVGIcons name={SVGIconName.SETTINGS} color={color} />
-        )}
-        {text === "Support" && (
+        {text !== SVGIconName.SUPPORT && <SVGIcons name={text} color={color} />}
+        {text === SVGIconName.SUPPORT && (
           <Image
             src="/support.jpg"
             height={24}

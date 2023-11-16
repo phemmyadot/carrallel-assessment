@@ -1,20 +1,18 @@
-.card {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-   
+.articleCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 220px;
 }
 
-.image {
-    width: 100%;
-    height: auto;
-   
+.cardImage {
+  border-radius: 15px 15px 0 0;
+  width: 220px;
+  object-fit: cover;
 }
 
-.title {
-    /* Add styles */
-}
-
-.excerpt {
-    /* Add styles */
+.cardBody {
+  padding: 1em;
+  width: 220px;
 }

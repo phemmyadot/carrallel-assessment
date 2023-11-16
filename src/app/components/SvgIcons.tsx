@@ -1,13 +1,14 @@
 import styles from "../styles/SvgIcons.module.css";
 
 export enum SVGIconName {
-  SETTINGS,
-  LIBRARY,
-  PLAN,
-  TOOLS,
-  SUPPORT,
-  HOME,
-  NOTIFICATION,
+  SETTINGS = "Settings",
+  LIBRARY = "Library",
+  PLAN = "Plan",
+  TOOLS = "Tools",
+  SUPPORT = "Support",
+  HOME = "Home",
+  NOTIFICATION = "Notification",
+  ARROW_RIGHT = "ArrowRight",
 }
 
 interface SVGIconProps {
@@ -44,7 +45,41 @@ const SVGIcons: React.FC<SVGIconProps> = ({ name, color = "#808080" }) => {
       );
       break;
     case SVGIconName.HOME:
-      icon = <> </>;
+      icon = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke={color}
+            strokeLinecap="round"
+            strokeWidth="1.5"
+            d="M22 22H2M2 11l8.126-6.5a3 3 0 013.748 0L22 11"
+          ></path>
+          <path
+            stroke={color}
+            strokeLinecap="round"
+            strokeWidth="1.5"
+            d="M15.5 5.5v-2A.5.5 0 0116 3h2.5a.5.5 0 01.5.5v5"
+            opacity="0.5"
+          ></path>
+          <path
+            stroke={color}
+            strokeLinecap="round"
+            strokeWidth="1.5"
+            d="M4 22V9.5M20 22V9.5"
+          ></path>
+          <path
+            stroke={color}
+            strokeWidth="1.5"
+            d="M15 22v-5c0-1.414 0-2.121-.44-2.56C14.122 14 13.415 14 12 14c-1.414 0-2.121 0-2.56.44C9 14.878 9 15.585 9 17v5M14 9.5a2 2 0 11-4 0 2 2 0 014 0z"
+            opacity="0.5"
+          ></path>
+        </svg>
+      );
       break;
     case SVGIconName.NOTIFICATION:
       icon = (
@@ -77,17 +112,73 @@ const SVGIcons: React.FC<SVGIconProps> = ({ name, color = "#808080" }) => {
         </svg>
       );
       break;
-    case SVGIconName.LIBRARY:
-      icon = <></>;
-      break;
     case SVGIconName.PLAN:
-      icon = <></>;
+      icon = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M22 11.086v.92a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"
+          ></path>
+        </svg>
+      );
+      break;
+    case SVGIconName.LIBRARY:
+      icon = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill={color}
+            stroke={color}
+            fillRule="evenodd"
+            d="M7.5 4.5A1.5 1.5 0 006 6v9.401A2.987 2.987 0 017.5 15H18V4.5H7.5zm10.5 12H7.5a1.5 1.5 0 000 3H18v-3zM4.5 18V6a3 3 0 013-3h11.25l.75.75V21h-12a3 3 0 01-3-3z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+      );
       break;
     case SVGIconName.TOOLS:
-      icon = <></>;
+      icon = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 32 32"
+        >
+          <path
+            stroke={color}
+            d="M31.449 6.748a.942.942 0 00-1.017.152l-5.041 4.528-4.551-4.669 4.506-5.204c.245-.283.305-.673.152-1.016s-.489-.553-.86-.553h-.271c-2.785 0-7.593.239-9.739 2.417l-.433.43c-2.29 2.337-2.697 6.168-1.49 9.081L1.165 23.692a4.08 4.08 0 000 5.713l1.409 1.428a3.948 3.948 0 005.635 0l11.71-11.804c1.107.599 2.625.989 3.899.989 2.043 0 3.98-.824 5.454-2.32l.427-.433c2.331-2.364 2.296-7.416 2.306-9.638a.964.964 0 00-.554-.878zm-3.147 9.158l-.371.433c-1.117 1.134-2.578 1.677-4.114 1.677-.76 0-1.784-.143-2.476-.431a5.944 5.944 0 01-1.725-1.107L6.798 29.403c-.376.382-.876.592-1.408.592s-1.032-.21-1.409-.592l-1.408-1.427a2.043 2.043 0 01-.001-2.857l12.524-12.777a6.009 6.009 0 01-.877-1.968h-.001c-.482-1.95-.201-4.644 1.313-6.189l.431-.435c1.298-1.317 4.67-1.707 6.537-1.822l-3.668 4.236a.971.971 0 00.038 1.309l5.798 5.948a.937.937 0 001.299.047l4.082-3.676c-.122 1.98-.506 4.856-1.748 6.115z"
+          ></path>
+        </svg>
+      );
       break;
-    case SVGIconName.SUPPORT:
-      icon = <></>;
+    case SVGIconName.ARROW_RIGHT:
+      icon = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 32 32"
+        >
+          <path
+            stroke={color}
+            d="M8.489 31.975a1.073 1.073 0 01-.757-1.831L21.99 15.88 7.94 1.83c-.417-.417-.417-1.098 0-1.515s1.098-.417 1.515 0l14.807 14.807a1.074 1.074 0 010 1.515L9.247 31.659a1.078 1.078 0 01-.757.316z"
+          ></path>
+        </svg>
+      );
       break;
     default:
       break;

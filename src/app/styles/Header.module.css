@@ -5,6 +5,9 @@
   padding: 1rem;
   background-color: #fefaf7;
   box-shadow: 0 2px 4px rgba(0, 0, 11, 0.1);
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 }
 
 .menuList {
@@ -13,7 +16,7 @@
   top: 0;
 }
 
-.menuList>a {
+.menuList > a {
   display: block;
   padding: 1rem;
   color: #000;
@@ -21,7 +24,7 @@
 }
 
 .title {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 300;
 }
 
@@ -55,7 +58,6 @@
   display: flex;
   flex-direction: column;
 }
-
 
 /* mobile styles */
 @media (max-width: 768px) {

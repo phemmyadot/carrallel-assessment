@@ -1,0 +1,19 @@
+.circleArticleCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 130px;
+  align-items: center;
+}
+
+.cardImage {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 100px;
+}
+
+.cardBody {
+  padding: 1em;
+  width: 150px;
+  text-align: center;
+}
