@@ -4,15 +4,8 @@ import ArticleCard from "@/app/components/ArticleCard";
 
 describe("ArticleCard", () => {
   it("renders correctly", () => {
-    render(
-      <ArticleCard
-        title="Test Title"
-        excerpt="Test Excerpt"
-        imageUrl="dummy-link"
-      />
-    );
+    render(<ArticleCard title="Test Title" id="0" imageUrl="dummy-link" />);
 
     expect(screen.getByText("Test Title")).toBeInTheDocument();
-    expect(screen.getByText("Test Excerpt")).toBeInTheDocument();
   });
 });
