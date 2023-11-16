@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { set } from "mongoose";
 import Link from "next/link";
-import Toast, { ToastProps, ToastType } from "../components/toast/Toast";
-import Loader from "../components/loader/Loader";
+import Toast, { ToastProps, ToastType } from "../components/Toast";
+import Loader from "../components/Loader";
 
 const Login = () => {
   const [username, setUsername] = useState("");

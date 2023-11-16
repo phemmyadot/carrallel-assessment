@@ -3,9 +3,9 @@
 import { set } from "mongoose";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import Toast, { ToastProps, ToastType } from "../components/toast/Toast";
+import Toast, { ToastProps, ToastType } from "../components/Toast";
 import Link from "next/link";
-import Loader from "../components/loader/Loader";
+import Loader from "../components/Loader";
 
 interface SignUpForm {
   username?: string;
