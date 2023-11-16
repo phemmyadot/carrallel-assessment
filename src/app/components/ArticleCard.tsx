@@ -20,6 +20,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl, id }) => {
       <Image
         src={imageUrl}
         alt={title}
+        priority={true}
         className={styles.cardImage}
         height={100}
         width={600}

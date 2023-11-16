@@ -19,16 +19,12 @@ describe("ArticleList", () => {
     ) as jest.Mock;
   });
   it("renders without crashing", async () => {
-    await act(async () => {
-      render(<ArticleList />);
-    });
+    await act(async () => render(<ArticleList />));
   });
 
   it("displays message when no recommended articles are found", async () => {
     data = [];
-    await act(async () => {
-      render(<ArticleList />);
-    });
+    await act(async () => render(<ArticleList />));
     await waitFor(() => {
       expect(screen.getByTestId("no-articles")).toBeInTheDocument();
     });
@@ -45,9 +41,7 @@ describe("ArticleList", () => {
           "https://source.unsplash.com/random?caregiver,homecare,6555b2e0cd3ce05632ccb5fb",
       },
     ];
-    await act(async () => {
-      render(<ArticleList />);
-    });
+    await act(async () => render(<ArticleList />));
     await waitFor(() => {
       expect(screen.getByTestId("article-card")).toBeInTheDocument();
     });
