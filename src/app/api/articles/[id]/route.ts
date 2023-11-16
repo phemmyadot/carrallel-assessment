@@ -1,9 +1,8 @@
 import Article from "@/app/models/article.model";
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (
-  req: NextApiRequest,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) => {
   try {
