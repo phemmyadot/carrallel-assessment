@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import styles from "../styles/Header.module.css";
 import SVGIcons, { SVGIconName } from "./SvgIcons";
@@ -10,6 +10,8 @@ import PopupMenu from "./PopupMenu";
 const Header: React.FC = () => {
   const [title, setTitle] = React.useState("Home");
 
+  const router = useRouter();
+
   const pathname = usePathname();
   useEffect(() => {
     const title = pathname.replace("/", "") || "Home";
@@ -18,20 +20,30 @@ const Header: React.FC = () => {
 
   if (pathname === "/login" || pathname === "/signup") return <></>;
 
+  const goBack = () => {
+    router.back();
+  };
+
   return (
     <header className={styles.header}>
-      <div className={styles.settingIcon}>
-        <div className={styles.mobileMenuIcon}>
-          <SVGIcons name={SVGIconName.SETTINGS} />
+      {pathname.includes("library") && pathname.split("/").length === 3 ? (
+        <div onClick={goBack}>
+          <SVGIcons name={SVGIconName.BACK} />
         </div>
-        <PopupMenu />
-      </div>
-
-      <h1 className={styles.title}>{title}</h1>
-      <div className={styles.mobileMenuIcon}>
-        <SVGIcons name={SVGIconName.NOTIFICATION} />
-      </div>
-
+      ) : (
+        <>
+          <div className={styles.settingIcon}>
+            <div className={styles.mobileMenuIcon}>
+              <SVGIcons name={SVGIconName.SETTINGS} />
+            </div>
+            <PopupMenu />
+          </div>
+          <h1 className={styles.title}>{title}</h1>
+          <div className={styles.mobileMenuIcon}>
+            <SVGIcons name={SVGIconName.NOTIFICATION} />
+          </div>
+        </>
+      )}
       {/* Navigation Links for Large Screens */}
       <nav className={styles.menuList}>
         <Link href="/">Home</Link>

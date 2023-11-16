@@ -1,4 +1,3 @@
-import { AuthCredential } from "@/app/models/authCredential.model";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 import User from "@/app/models/user.model";

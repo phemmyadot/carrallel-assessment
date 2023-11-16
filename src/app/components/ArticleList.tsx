@@ -1,66 +1,70 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import styles from "../styles/ArticleList.module.css";
 import ArticleCard from "./ArticleCard";
 import CircleArticleCard from "./CircleArticleCard";
+import { ArticleModel } from "../models/article.model";
+import { set } from "mongoose";
+import Loader from "./Loader";
 
 const ArticleList: React.FC = () => {
-  // Dummy data for the cards
-  const articles = [
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-  ];
-  // Dummy data for the cards
-  const otherArticles = [
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-  ];
+  const [recommendedArticles, setRecommendedArticles] = useState<
+    ArticleModel[]
+  >([]);
+  const [otherArticles, setOtherArticles] = useState<ArticleModel[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    try {
+      setLoading(true);
+      const fetchArticles = async () => {
+        const response = await fetch("/api/articles/recommended");
+        if (response.ok) {
+          const json = await response.json();
+          setRecommendedArticles(json.data);
+        } else {
+          console.log("Error fetching articles");
+        }
+      };
+      fetchArticles();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      setLoading(true);
+      const fetchArticles = async () => {
+        const response = await fetch("/api/articles/other-resources");
+        if (response.ok) {
+          const json = await response.json();
+          setOtherArticles(json.data);
+        } else {
+          console.log("Error fetching articles");
+        }
+      };
+      fetchArticles();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   return (
     <>
+      {recommendedArticles.length === 0 && <div>No Articles found</div>}
       <div className={styles.articleSection + " scrollable-row"}>
-        {articles.map((article, index) => (
+        {recommendedArticles.map((article) => (
           <ArticleCard
-            key={index}
+            key={article.id}
+            id={article.id}
             title={article.title}
-            imageUrl={article.imageUrl}
+            imageUrl={article.previewImage ?? ""}
           />
         ))}
       </div>
@@ -68,11 +72,13 @@ const ArticleList: React.FC = () => {
         {otherArticles.map((article, index) => (
           <CircleArticleCard
             key={index}
+            id={article.id}
             title={article.title}
-            imageUrl={article.imageUrl}
+            imageUrl={article.previewImage ?? ""}
           />
         ))}
       </div>
+      {loading && <Loader />}
     </>
   );
 };

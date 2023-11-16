@@ -7,11 +7,12 @@ import Image from "next/image";
 interface ArticleCardProps {
   title: string;
   imageUrl: string;
+  id: string;
 }
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl }) => {
+const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl, id }) => {
   return (
-    <div className={styles.articleCard}>
+    <a href={`/library/${id}`} className={styles.articleCard}>
       <Image
         src={imageUrl}
         alt={title}
@@ -22,7 +23,7 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ title, imageUrl }) => {
       <div className={styles.cardBody}>
         <p>{title}</p>
       </div>
-    </div>
+    </a>
   );
 };
 

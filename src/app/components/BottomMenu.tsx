@@ -50,6 +50,9 @@ const Menu: React.FC = () => {
     setBottomMenuItems(updatedMenuItems);
   }, [pathname]);
 
+  if (pathname.includes("library") && pathname.split("/").length === 3)
+    return <></>;
+
   if (pathname === "/login" || pathname === "/signup") return <></>;
 
   return (

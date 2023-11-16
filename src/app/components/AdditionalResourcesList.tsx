@@ -1,68 +1,49 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/AdditionalResourcesList.module.css";
 import AdditionalResource from "./AdditionalResource";
+import { ArticleModel } from "../models/article.model";
+import Loader from "./Loader";
 
 const AdditionalResources: React.FC = () => {
-  // Dummy data for the cards
-  const articles = [
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "Decoding Dementia: A Caregiver's Handbook",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-  ];
-  // Dummy data for the cards
-  const otherArticles = [
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-    {
-      title: "My family and relationships",
-      content: "A Caregiver's Handbook",
-      imageUrl: "/support.jpg",
-    },
-  ];
+  const [otherArticles, setOtherArticles] = useState<ArticleModel[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    try {
+      setLoading(true);
+      const fetchArticles = async () => {
+        const response = await fetch("/api/articles/other-resources");
+        if (response.ok) {
+          const json = await response.json();
+          setOtherArticles(json.data);
+        } else {
+          console.log("Error fetching articles");
+        }
+      };
+      fetchArticles();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   return (
     <>
+      {otherArticles.length === 0 && <div>No Articles found</div>}
       <div className={styles.additionalResourcesSection}>
-        {articles.map((article, index) => (
+        {otherArticles.map((article, index) => (
           <AdditionalResource
+            id={article.id}
             key={index}
             title={article.title}
-            imageUrl={article.imageUrl}
+            imageUrl={article.previewImage ?? ""}
           />
         ))}
       </div>
+      {loading && <Loader />}
     </>
   );
 };

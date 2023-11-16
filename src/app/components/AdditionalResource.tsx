@@ -8,14 +8,16 @@ import SVGIcons, { SVGIconName } from "./SvgIcons";
 interface AdditionalResourceProps {
   title: string;
   imageUrl: string;
+  id: string;
 }
 
 const AdditionalResource: React.FC<AdditionalResourceProps> = ({
   title,
   imageUrl,
+  id,
 }) => {
   return (
-    <div className={styles.additionalResource}>
+    <a href={`/library/${id}`} className={styles.additionalResource}>
       <Image
         src={imageUrl}
         alt={title}
@@ -27,7 +29,7 @@ const AdditionalResource: React.FC<AdditionalResourceProps> = ({
         <p>{title}</p>
       </div>
       <SVGIcons name={SVGIconName.ARROW_RIGHT} />
-    </div>
+    </a>
   );
 };
 

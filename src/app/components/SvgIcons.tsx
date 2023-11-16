@@ -9,6 +9,7 @@ export enum SVGIconName {
   HOME = "Home",
   NOTIFICATION = "Notification",
   ARROW_RIGHT = "ArrowRight",
+  BACK = "Back",
 }
 
 interface SVGIconProps {
@@ -179,6 +180,26 @@ const SVGIcons: React.FC<SVGIconProps> = ({ name, color = "#808080" }) => {
           ></path>
         </svg>
       );
+      break;
+    case SVGIconName.BACK:
+      icon = (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke={color}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M15 20l-8-8 8-8"
+          ></path>
+        </svg>
+      );
+
       break;
     default:
       break;

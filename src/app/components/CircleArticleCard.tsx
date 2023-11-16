@@ -7,14 +7,16 @@ import Image from "next/image";
 interface CircleArticleCardProps {
   title: string;
   imageUrl: string;
+  id: string;
 }
 
 const CircleArticleCard: React.FC<CircleArticleCardProps> = ({
   title,
   imageUrl,
+  id,
 }) => {
   return (
-    <div className={styles.circleArticleCard}>
+    <a href={`/library/${id}`} className={styles.circleArticleCard}>
       <Image
         src={imageUrl}
         alt={title}
@@ -25,7 +27,7 @@ const CircleArticleCard: React.FC<CircleArticleCardProps> = ({
       <div className={styles.cardBody}>
         <p>{title}</p>
       </div>
-    </div>
+    </a>
   );
 };
 

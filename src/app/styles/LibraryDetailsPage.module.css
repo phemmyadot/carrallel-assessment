@@ -1,0 +1,22 @@
+.libraryContainer {
+  padding: 2rem;
+}
+
+.libraryContainer img,
+.libraryContainer video {
+  height: 300px;
+  object-fit: cover;
+  width: 100% !important;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .libraryContainer {
+    padding: 0 1rem;
+  }
+  .libraryContainer img,
+  .libraryContainer video {
+    height: 200px;
+  }
+}
