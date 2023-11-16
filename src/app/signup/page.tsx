@@ -108,18 +108,21 @@ const SingUpPage = () => {
       <form className={styles.authForm} onSubmit={handleSubmit}>
         <input
           type="username"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         {formErrors.username && <span>{formErrors?.username}</span>}
         <input
           type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {formErrors.password && <span>{formErrors?.password}</span>}
         <input
           type="password"
+          placeholder="Confirm Password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
